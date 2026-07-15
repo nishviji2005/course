@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://nishviji2005.github.io/course/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://nishviji2005.github.io/course/#about</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://nishviji2005.github.io/course/#services</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://nishviji2005.github.io/course/#portfolio</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://nishviji2005.github.io/course/#contact</loc>
+    <priority>0.80</priority>
+  </url>
+
+</urlset>
