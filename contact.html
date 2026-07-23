@@ -1,57 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Nishma</title>
-    <meta name="description" content="Get in touch with Nishma, a digital marketer and growth strategist. Let's talk about your project or any questions you may have.">
-    <meta name="keywords" content="Nishma, contact, digital marketer, get in touch, work together">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Nishma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          rose: { deep: '#C2255C', mid: '#E8557C', soft: '#F8BBD0', blush: '#FDF2F6' },
+          ink: '#2B2230',
+          mauve: '#8E6577'
+        },
+        fontFamily: {
+          display: ['"Playfair Display"', 'serif'],
+          body: ['"Poppins"', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Poppins', sans-serif; background: linear-gradient(160deg, #FDF2F6 0%, #FCE4EC 45%, #FBEAF1 100%); color: #2B2230; overflow-x: hidden; }
+  .font-display { font-family: 'Playfair Display', serif; }
+
+  .blob { position: fixed; border-radius: 50%; filter: blur(70px); opacity: 0.35; z-index: -1; animation: float 14s ease-in-out infinite; }
+  .blob1 { width: 420px; height: 420px; background: #F48FB1; top: -120px; left: -120px; }
+  .blob2 { width: 380px; height: 380px; background: #F8BBD0; bottom: -140px; right: -100px; animation-delay: -6s; }
+  @keyframes float { 0%,100% { transform: translate(0,0) scale(1);} 50% { transform: translate(30px,-40px) scale(1.08);} }
+
+  .glass { background: rgba(255,255,255,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.6); box-shadow: 0 8px 32px rgba(194,37,92,0.12); }
+  .glass-nav { background: rgba(255,255,255,0.65); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.5); }
+
+  .nav-link { position: relative; }
+  .nav-link::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0%; height: 2px; background: linear-gradient(90deg, #C2255C, #F48FB1); transition: width 0.35s ease; border-radius: 2px; }
+  .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+  .tilt-card { transition: transform 0.4s cubic-bezier(.2,.8,.2,1), box-shadow 0.4s ease; transform-style: preserve-3d; }
+  .tilt-card:hover { transform: perspective(900px) rotateX(4deg) rotateY(-4deg) translateY(-8px) scale(1.015); box-shadow: 0 25px 50px rgba(194,37,92,0.25); }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.show { opacity: 1; transform: translateY(0); }
+
+  .btn-primary { background: linear-gradient(135deg, #C2255C, #E8557C); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .btn-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 15px 30px rgba(194,37,92,0.35); }
+
+  input, textarea {
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(194,37,92,0.15);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #C2255C;
+    box-shadow: 0 0 0 4px rgba(194,37,92,0.12);
+  }
+
+  ::selection { background: #F8BBD0; color: #2B2230; }
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: #F48FB1; border-radius: 10px; }
+
+  #toast {
+    transform: translateY(120%);
+    transition: transform 0.4s cubic-bezier(.2,.8,.2,1);
+  }
+  #toast.show { transform: translateY(0); }
+</style>
 </head>
-<body class="bg-gray-900 text-gray-300 font-sans">
+<body class="scrollbar-thin">
 
-    <!-- Navigation Bar -->
-    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-white">Angel Disney</a>
-            <ul class="flex space-x-6">
-                <li><a href="index.html" class="text-gray-300 hover:text-blue-400 transition duration-300">Home</a></li>
-                <li><a href="about.html" class="text-gray-300 hover:text-blue-400 transition duration-300">About</a></li>
-                <li><a href="experience.html" class="text-gray-300 hover:text-blue-400 transition duration-300">Experience</a></li>
-                <li><a href="contact.html" class="text-blue-600 font-bold border-b-2 border-blue-600 pb-1">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
 
-    <!-- Contact Section -->
-    <main class="container mx-auto px-6 py-20">
-        <div class="text-center animate-fade-in-down">
-            <h2 class="text-4xl font-bold text-white">Get In Touch</h2>
-            <p class="mt-2 text-lg text-gray-400">Have a question or want to work together? Let's talk.</p>
-        </div>
-        
-        <form class="max-w-xl mx-auto mt-12 bg-gray-800 p-8 rounded-lg shadow-lg animate-fade-in-up">
-            <div class="mb-6">
-                <label for="name" class="block text-gray-300 font-bold mb-2">Name</label>
-                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Name" required>
-            </div>
-            <div class="mb-6">
-                <label for="email" class="block text-gray-300 font-bold mb-2">Email</label>
-                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Email" required>
-            </div>
-            <div class="mb-6">
-                <label for="message" class="block text-gray-300 font-bold mb-2">Message</label>
-                <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Message" required></textarea>
-            </div>
-            <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition-transform transform hover:scale-105 duration-300">Send Message</button>
-        </form>
-    </main>
+<nav class="glass-nav fixed top-0 left-0 w-full z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="font-display text-2xl font-bold text-rose-deep tracking-wide">Nishma<span class="text-mauve">.</span></a>
+    <button id="menuBtn" class="md:hidden text-rose-deep text-2xl"><i class="fa-solid fa-bars"></i></button>
+    <ul id="navLinks" class="hidden md:flex gap-10 font-medium text-ink">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="experience.html" class="nav-link">Experience</a></li>
+      <li><a href="contact.html" class="nav-link active">Contact</a></li>
+    </ul>
+  </div>
+  <ul id="mobileMenu" class="md:hidden hidden flex-col gap-4 px-6 pb-6 font-medium text-ink">
+    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li><a href="about.html" class="nav-link">About</a></li>
+    <li><a href="experience.html" class="nav-link">Experience</a></li>
+    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+  </ul>
+</nav>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 text-center py-6 mt-20">
-        <p>&copy; 2026 Angel Disney. All Rights Reserved.</p>
-    </footer>
+<header class="pt-32 pb-12 text-center px-6 reveal">
+  <p class="uppercase tracking-[0.3em] text-mauve text-sm font-semibold mb-3">Let's connect</p>
+  <h1 class="font-display text-5xl font-bold text-ink">Contact Me</h1>
+</header>
 
+<section class="max-w-5xl mx-auto px-6 pb-24 grid md:grid-cols-2 gap-8">
+
+  <!-- Contact Info -->
+  <div class="space-y-5 reveal">
+    <div class="glass tilt-card rounded-2xl p-6 flex items-center gap-4">
+      <div class="w-12 h-12 rounded-full bg-rose-soft/60 flex items-center justify-center text-rose-deep text-xl"><i class="fa-solid fa-envelope"></i></div>
+      <div>
+        <p class="text-xs uppercase tracking-widest text-mauve">Email</p>
+        <a href="mailto:nishma@example.com" class="font-medium hover:text-rose-deep transition">nishma@example.com</a>
+      </div>
+    </div>
+
+    <div class="glass tilt-card rounded-2xl p-6 flex items-center gap-4">
+      <div class="w-12 h-12 rounded-full bg-rose-soft/60 flex items-center justify-center text-rose-deep text-xl"><i class="fa-solid fa-phone"></i></div>
+      <div>
+        <p class="text-xs uppercase tracking-widest text-mauve">Phone</p>
+        <a href="tel:+911234567890" class="font-medium hover:text-rose-deep transition">+91 12345 67890</a>
+      </div>
+    </div>
+
+    <div class="glass tilt-card rounded-2xl p-6 flex items-center gap-4">
+      <div class="w-12 h-12 rounded-full bg-rose-soft/60 flex items-center justify-center text-rose-deep text-xl"><i class="fa-brands fa-linkedin"></i></div>
+      <div>
+        <p class="text-xs uppercase tracking-widest text-mauve">LinkedIn</p>
+        <a href="https://linkedin.com" target="_blank" class="font-medium hover:text-rose-deep transition">linkedin.com/in/nishma</a>
+      </div>
+    </div>
+
+    <div class="glass tilt-card rounded-2xl p-6 flex items-center gap-4">
+      <div class="w-12 h-12 rounded-full bg-rose-soft/60 flex items-center justify-center text-rose-deep text-xl"><i class="fa-brands fa-github"></i></div>
+      <div>
+        <p class="text-xs uppercase tracking-widest text-mauve">GitHub</p>
+        <a href="https://github.com" target="_blank" class="font-medium hover:text-rose-deep transition">github.com/nishma</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="glass rounded-3xl p-8 reveal">
+    <h2 class="font-display text-2xl font-semibold mb-6">Send a Message</h2>
+    <form id="contactForm" class="space-y-4">
+      <div>
+        <label class="text-sm font-medium block mb-1" for="name">Name</label>
+        <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl" placeholder="Your name">
+      </div>
+      <div>
+        <label class="text-sm font-medium block mb-1" for="email">Email</label>
+        <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl" placeholder="you@example.com">
+      </div>
+      <div>
+        <label class="text-sm font-medium block mb-1" for="message">Message</label>
+        <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded-xl" placeholder="Write your message..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary text-white w-full py-3 rounded-xl font-semibold shadow-lg">
+        Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
+      </button>
+    </form>
+  </div>
+
+</section>
+
+<footer class="glass-nav py-6 text-center text-mauve text-sm">
+  © <span id="year"></span> Nishma. All rights reserved.
+</footer>
+
+<!-- Toast -->
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 glass px-6 py-3 rounded-full text-rose-deep font-medium shadow-lg z-50">
+  <i class="fa-solid fa-circle-check mr-2"></i>Message sent successfully!
+</div>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Contact form handling (front-end only demo)
+  const form = document.getElementById('contactForm');
+  const toast = document.getElementById('toast');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    toast.classList.add('show');
+    form.reset();
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  });
+</script>
 </body>
 </html>
