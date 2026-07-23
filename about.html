@@ -1,53 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Nishma</title>
-    <meta name="description" content="Learn more about Nishma, a results-driven digital marketer with expertise in SEO, content strategy, and social media marketing.">
-    <meta name="keywords" content="Nishma, about, digital marketer, SEO, content strategy, social media marketing">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Nishma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          rose: { deep: '#C2255C', mid: '#E8557C', soft: '#F8BBD0', blush: '#FDF2F6' },
+          ink: '#2B2230',
+          mauve: '#8E6577'
+        },
+        fontFamily: {
+          display: ['"Playfair Display"', 'serif'],
+          body: ['"Poppins"', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(160deg, #FDF2F6 0%, #FCE4EC 45%, #FBEAF1 100%);
+    color: #2B2230;
+    overflow-x: hidden;
+  }
+  .font-display { font-family: 'Playfair Display', serif; }
+
+  .blob { position: fixed; border-radius: 50%; filter: blur(70px); opacity: 0.35; z-index: -1; animation: float 14s ease-in-out infinite; }
+  .blob1 { width: 420px; height: 420px; background: #F48FB1; top: -120px; left: -120px; }
+  .blob2 { width: 380px; height: 380px; background: #F8BBD0; bottom: -140px; right: -100px; animation-delay: -6s; }
+  @keyframes float { 0%,100% { transform: translate(0,0) scale(1);} 50% { transform: translate(30px,-40px) scale(1.08);} }
+
+  .glass { background: rgba(255,255,255,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.6); box-shadow: 0 8px 32px rgba(194,37,92,0.12); }
+  .glass-nav { background: rgba(255,255,255,0.65); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.5); }
+
+  .nav-link { position: relative; }
+  .nav-link::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0%; height: 2px; background: linear-gradient(90deg, #C2255C, #F48FB1); transition: width 0.35s ease; border-radius: 2px; }
+  .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+  .tilt-card { transition: transform 0.4s cubic-bezier(.2,.8,.2,1), box-shadow 0.4s ease; transform-style: preserve-3d; }
+  .tilt-card:hover { transform: perspective(900px) rotateX(4deg) rotateY(-4deg) translateY(-8px) scale(1.015); box-shadow: 0 25px 50px rgba(194,37,92,0.25); }
+
+  .skill-bar-fill { transition: width 1.2s ease; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.show { opacity: 1; transform: translateY(0); }
+
+  ::selection { background: #F8BBD0; color: #2B2230; }
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: #F48FB1; border-radius: 10px; }
+</style>
 </head>
-<body class="bg-gray-900 text-gray-300 font-sans">
+<body class="scrollbar-thin">
 
-    <!-- Navigation Bar -->
-    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-white">Angel Disney</a>
-            <ul class="flex space-x-6">
-                <li><a href="index.html" class="text-gray-300 hover:text-blue-400 transition duration-300">Home</a></li>
-                <li><a href="about.html" class="text-blue-600 font-bold border-b-2 border-blue-600 pb-1">About</a></li>
-                <li><a href="experience.html" class="text-gray-300 hover:text-blue-400 transition duration-300">Experience</a></li>
-                <li><a href="contact.html" class="text-gray-300 hover:text-blue-400 transition duration-300">Contact</a></li>
-            </ul>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+
+<nav class="glass-nav fixed top-0 left-0 w-full z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="font-display text-2xl font-bold text-rose-deep tracking-wide">Nishma<span class="text-mauve">.</span></a>
+    <button id="menuBtn" class="md:hidden text-rose-deep text-2xl"><i class="fa-solid fa-bars"></i></button>
+    <ul id="navLinks" class="hidden md:flex gap-10 font-medium text-ink">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link active">About</a></li>
+      <li><a href="experience.html" class="nav-link">Experience</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+  </div>
+  <ul id="mobileMenu" class="md:hidden hidden flex-col gap-4 px-6 pb-6 font-medium text-ink">
+    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li><a href="about.html" class="nav-link active">About</a></li>
+    <li><a href="experience.html" class="nav-link">Experience</a></li>
+    <li><a href="contact.html" class="nav-link">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="pt-32 pb-12 text-center px-6 reveal">
+  <p class="uppercase tracking-[0.3em] text-mauve text-sm font-semibold mb-3">Get to know me</p>
+  <h1 class="font-display text-5xl font-bold text-ink">About Me</h1>
+</header>
+
+<section class="max-w-4xl mx-auto px-6 pb-16 reveal">
+  <div class="glass tilt-card rounded-3xl p-8 md:p-10 text-center">
+    <p class="text-lg text-mauve leading-relaxed">
+      I'm Nishma — a passionate and detail-oriented individual who loves the intersection of
+      creativity and technology. With a strong foundation in digital marketing and hands-on
+      experience building web interfaces, I enjoy crafting experiences that are both
+      strategic and beautifully designed. I'm always learning, always curious, and always
+      ready for the next challenge.
+    </p>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="max-w-5xl mx-auto px-6 pb-16">
+  <h2 class="font-display text-3xl font-bold text-ink text-center mb-10 reveal">Education</h2>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="glass tilt-card rounded-2xl p-6 reveal">
+      <div class="flex items-center gap-4 mb-3">
+        <div class="w-12 h-12 rounded-full bg-rose-soft/60 flex items-center justify-center text-rose-deep text-xl">
+          <i class="fa-solid fa-graduation-cap"></i>
         </div>
-    </nav>
-
-    <!-- About Section -->
-    <main class="container mx-auto px-6 py-20">
-        <div class="flex flex-col md:flex-row items-center justify-center gap-10">
-            <!-- Image -->
-            <div class="md:w-1/3 animate-slide-in-left">
-                <img src="https://picsum.photos/seed/saith/400/400" alt="About Angel Disney" class="rounded-full w-64 h-64 mx-auto md:mx-0 shadow-2xl object-cover">
-            </div>
-            <!-- Content -->
-            <div class="md:w-2/3 md:pl-12 mt-8 md:mt-0 animate-slide-in-right">
-                <h2 class="text-4xl font-bold text-white">About Me</h2>
-                <p class="mt-4 text-lg text-gray-400">
-                    As a results-driven digital marketer, I have a passion for creating impactful online campaigns. My expertise lies in SEO, content strategy, and social media marketing. I thrive on data and creativity to help businesses grow their online presence and connect with their audience in a meaningful way.
-                </p>
-                <p class="mt-4 text-lg text-gray-400">
-                    When I'm not optimizing campaigns, I enjoy exploring the latest digital trends and learning new technologies to stay ahead of the curve.
-                </p>
-            </div>
+        <div>
+          <h3 class="font-display font-semibold text-lg">Bachelor's Degree</h3>
+          <p class="text-sm text-mauve">Business / Marketing Studies</p>
         </div>
-    </main>
+      </div>
+      <p class="text-sm text-mauve">Focused on marketing fundamentals, consumer behavior, and digital strategy.</p>
+    </div>
+    <div class="glass tilt-card rounded-2xl p-6 reveal">
+      <div class="flex items-center gap-4 mb-3">
+        <div class="w-12 h-12 rounded-full bg-rose-soft/60 flex items-center justify-center text-rose-deep text-xl">
+          <i class="fa-solid fa-certificate"></i>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-lg">Certification</h3>
+          <p class="text-sm text-mauve">Digital Marketing & Web Development</p>
+        </div>
+      </div>
+      <p class="text-sm text-mauve">Hands-on training in SEO, social media strategy, HTML/CSS/JS and Excel analytics.</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 text-center py-6">
-        <p>&copy; 2026 Angel Disney. All Rights Reserved.</p>
-    </footer>
+<!-- SKILLS -->
+<section class="max-w-5xl mx-auto px-6 pb-24">
+  <h2 class="font-display text-3xl font-bold text-ink text-center mb-10 reveal">Skills</h2>
+  <div class="glass rounded-3xl p-8 md:p-10 reveal">
+    <div class="grid md:grid-cols-2 gap-x-10 gap-y-6">
 
+      <div>
+        <div class="flex justify-between mb-1"><span class="font-medium">Digital Marketing</span><span class="text-mauve text-sm">90%</span></div>
+        <div class="w-full h-2 bg-rose-soft/40 rounded-full overflow-hidden">
+          <div class="skill-bar-fill h-full bg-gradient-to-r from-rose-deep to-rose-mid rounded-full" style="width:0%" data-width="90%"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex justify-between mb-1"><span class="font-medium">HTML & CSS</span><span class="text-mauve text-sm">85%</span></div>
+        <div class="w-full h-2 bg-rose-soft/40 rounded-full overflow-hidden">
+          <div class="skill-bar-fill h-full bg-gradient-to-r from-rose-deep to-rose-mid rounded-full" style="width:0%" data-width="85%"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex justify-between mb-1"><span class="font-medium">JavaScript</span><span class="text-mauve text-sm">75%</span></div>
+        <div class="w-full h-2 bg-rose-soft/40 rounded-full overflow-hidden">
+          <div class="skill-bar-fill h-full bg-gradient-to-r from-rose-deep to-rose-mid rounded-full" style="width:0%" data-width="75%"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex justify-between mb-1"><span class="font-medium">Excel</span><span class="text-mauve text-sm">88%</span></div>
+        <div class="w-full h-2 bg-rose-soft/40 rounded-full overflow-hidden">
+          <div class="skill-bar-fill h-full bg-gradient-to-r from-rose-deep to-rose-mid rounded-full" style="width:0%" data-width="88%"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex justify-between mb-1"><span class="font-medium">SEO & Content Strategy</span><span class="text-mauve text-sm">80%</span></div>
+        <div class="w-full h-2 bg-rose-soft/40 rounded-full overflow-hidden">
+          <div class="skill-bar-fill h-full bg-gradient-to-r from-rose-deep to-rose-mid rounded-full" style="width:0%" data-width="80%"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex justify-between mb-1"><span class="font-medium">Communication</span><span class="text-mauve text-sm">92%</span></div>
+        <div class="w-full h-2 bg-rose-soft/40 rounded-full overflow-hidden">
+          <div class="skill-bar-fill h-full bg-gradient-to-r from-rose-deep to-rose-mid rounded-full" style="width:0%" data-width="92%"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="glass-nav py-6 text-center text-mauve text-sm">
+  © <span id="year"></span> Nishma. All rights reserved.
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Animate skill bars when visible
+  const bars = document.querySelectorAll('.skill-bar-fill');
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.width = entry.target.dataset.width;
+        barObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  bars.forEach(bar => barObserver.observe(bar));
+</script>
 </body>
 </html>
